@@ -1,0 +1,30 @@
+# Compilação e Pastas Temporárias
+build/
+HandPaint_Release/
+*.exe
+*.o
+*.obj
+*.gch
+*.pdb
+*.ilk
+
+# Logs e Ficheiros de Debug/Teste
+stdout.txt
+stderr.txt
+test_*.cpp
+test_*.exe
+test_*.txt
+package.ps1
+
+# Pacote de release (Demasiado grande para Git - Recomenda-se GitHub Releases)
+HandPaint_v1.0_Windows.zip
+
+# Editor e IDEs
+.vscode/
+.vs/
+.DS_Store
+*.user
+*.suo
+*.sln
+*.vcxproj
+*.filters
