@@ -1,55 +1,55 @@
-# HandPaint - Pintura Digital com Inteligência Artificial 🎨✋
+# HandPaint - Digital Painting with Artificial Intelligence 🎨✋
 
-HandPaint é uma aplicação interativa desenvolvida em **C++** que utiliza Vision Compute e Inteligência Artificial para permitir que o utilizador pinte digitalmente no ecrã utilizando apenas movimentos das mãos captados pela webcam.
+HandPaint is an interactive application developed in **modern C++** that uses Computer Vision and AI to allow users to paint, draw, and erase on screen using only hand gestures captured via webcam.
 
-## 🚀 Funcionalidades
+## 🚀 Key Features
 
-- **Rastreio de Mão em Tempo Real:** Utiliza modelos de Deep Learning (MediaPipe) para detetar 21 pontos-chave (landmarks) da mão com alta precisão.
-- **Pintura Intuitiva:** 
-  - Levante apenas o **Dedo Indicador** para começar a desenhar.
-  - Alterne entre 5 cores vibrantes e uma borracha tocando nos botões virtuais no topo do ecrã.
-- **Borracha em Punho:** Feche a mão em formato de **Punho** (escondendo os dedos) para ativar a borracha dinâmica. O tamanho da borracha adapta-se à proximidade da mão.
-- **Gestão de Desenhos:** Atalhos para Guardar (`S`), Carregar (`L`) e Limpar (`C`) a tela de desenho.
-- **Interface Polida:** Menu de entrada com instruções, definições de câmara e visual limpo (sem janelas de consola CMD).
+- **Real-Time Hand Tracking:** Uses Deep Learning models (MediaPipe) to detect 21 hand landmarks with high precision.
+- **Intuitive Painting Mode:** 
+  - Raise only the **Index Finger** to start drawing.
+  - Switch between 5 vibrant colors and an eraser by touching virtual buttons at the top of the screen.
+- **Fist Gesture Eraser:** Close your hand into a **Fist** (retracting all fingers) to activate the dynamic eraser. The eraser size adapts based on the hand's distance to the camera.
+- **Drawing Management:** Fast shortcuts to Save (`S`), Load (`L`), and Clear (`C`) the canvas.
+- **Polished Interface:** Main menu with instructions, camera settings, and a clean UI (no CMD/Console windows).
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Technology Stack
 
-- **Linguagem:** C++17
-- **Visão Computacional:** [OpenCV 4.10+](https://opencv.org/)
-- **Inteligência Artificial:** [Google MediaPipe Hand Tracking (TFLite)](https://google.github.io/mediapipe/solutions/hands.html)
-- **Interface de SO:** Windows API (DirectShow para gestão de câmaras)
-- **Compilador:** GCC (via MSYS2 UCRT64)
+- **Language:** C++17
+- **Computer Vision:** [OpenCV 4.10+](https://opencv.org/)
+- **Artificial Intelligence:** [Google MediaPipe Hand Tracking (TFLite)](https://google.github.io/mediapipe/solutions/hands.html)
+- **OS Integration:** Windows API (DirectShow for camera management)
+- **Compiler:** GCC (via MSYS2 UCRT64)
 
-## 🧠 Como funciona o rastreio?
+## 🧠 How the tracking works
 
-O núcleo do sistema reside na classe `HandTracker`, que implementa um pipeline de duas fases:
-1. **Palm Detection:** Uma rede neuronal leve localiza a palma da mão no frame total.
-2. **Hand Landmarks (MediaPipe v8):** Uma rede neuronal completa extrai 21 pontos 3D da mão.
-O sistema utiliza uma técnica de **ROI (Region of Interest) Tracking**: após a primeira deteção, a IA foca-se apenas na área onde a mão estava, permitindo maior FPS e fluidez. Se o rastreio falhar ou for perdido, o sistema volta automaticamente à deteção global.
+The core of the system is the `HandTracker` class, which implements a specialized 2-stage pipeline:
+1. **Palm Detection:** A lightweight neural network locates the palm's bounding box in the full frame.
+2. **Hand Landmarks (MediaPipe v8):** A full-capacity neural network extracts 21 three-dimensional points from the hand.
+The system utilizes a **ROI (Region of Interest) Tracking** technique: once detected, the AI focuses only on the area where the hand was in the previous frame, allowing for higher FPS and smoother movement. If tracking is lost, the system automatically falls back to global detection.
 
-## 📥 Download Plug & Play
+## 📥 Plug & Play Download
 
-Devido ao tamanho das bibliotecas (DLLs do OpenCV e Qt), o pacote completo de distribuição (**117MB**) não pode ser carregado diretamente no código fonte do GitHub (limite de 100MB). 
+Due to the size of the dependencies (OpenCV and Qt DLLs), the full distribution package (**~117MB**) cannot be uploaded directly to the GitHub source code repository (100MB limit).
 
-Podes descarregar a versão pronta a usar em:
-- [HandPaint v1.0 - Releases (Brevemente)](#) 
+You can download the ready-to-use version at:
+- [HandPaint v1.0 - Releases (Coming Soon)](#)
 
-**Nota:** Basta extrair o ZIP e executar o ficheiro `Iniciar_Jogo.bat`. Não é necessário instalar nada!
+**Note:** Simply extract the ZIP and run `Iniciar_Jogo.bat`. No installation required!
 
-## 🔧 Como Compilar (Para Desenvolvedores)
+## 🔧 How to Compile (For Developers)
 
-Requisitos: **MSYS2** com o ambiente **UCRT64** e a biblioteca `opencv` instalada (`pacman -S mingw-w64-ucrt-x86_64-opencv`).
+Requirements: **MSYS2** with the **UCRT64** environment and the `opencv` package installed (`pacman -S mingw-w64-ucrt-x86_64-opencv`).
 
-1. Clone o repositório.
-2. Execute o script de build:
+1. Clone the repository.
+2. Run the build script:
    ```cmd
    build.bat
    ```
-3. O executável `HandPaint.exe` será gerado na raiz.
+3. The `HandPaint.exe` executable will be generated in the root directory.
 
-## 📚 Créditos e Referências
+## 📚 Credits and References
 
-Este projeto foi construído sobre a fundação do repositório [mediapipe_hand_tracking_cpp](https://github.com/homuler/mediapipe_hand_tracking_cpp), adaptando os modelos TFLite para uma arquitetura orientada a objetos personalizada para o ambiente Windows.
+This project was built upon the foundation of the [mediapipe_hand_tracking_cpp](https://github.com/homuler/mediapipe_hand_tracking_cpp) repository, adapting the TFLite models for a custom object-oriented architecture suited for the Windows environment.
 
 ---
-Desenvolvido por **Mateus Costa** como parte do Trabalho de Recuperação de TLP. 🌟
+Developed by **Mateus Costa**. 🌟
