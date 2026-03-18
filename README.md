@@ -32,7 +32,7 @@ The system utilizes a **ROI (Region of Interest) Tracking** technique: once dete
 Due to the size of the dependencies (OpenCV and Qt DLLs), the full distribution package (**~117MB**) cannot be uploaded directly to the GitHub source code repository (100MB limit).
 
 You can download the ready-to-use version at:
-- [HandPaint v1.0 - Releases (Coming Soon)](#)
+- [HandPaint v1.0 - Releases](#)
 
 **Note:** Simply extract the ZIP and run `Iniciar_Jogo.bat`. No installation required!
 
